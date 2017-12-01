@@ -1,0 +1,22 @@
+// Import Bulma's initial values and make overrides
+@import "../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../node_modules/bulma/sass/utilities/functions";
+
+$trust-blue: #368cbf;
+$eco-green: #7ebc59;
+$dark-slate: #33363b;
+$light-grey: #eaeaea;
+
+$primary: $trust-blue;
+$primary-invert: findColorInvert($primary);
+
+// Import Bulma's derived values and make overrides
+@import "../../node_modules/bulma/sass/utilities/derived-variables";
+
+$background: $light;
+
+$body-background-color: $background;
+$footer-background-color: $background;
+
+// Import the rest of Bulma
+@import "../../node_modules/bulma/bulma.sass";
