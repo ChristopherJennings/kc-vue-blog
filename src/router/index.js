@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/Home'
-import Authors from '@/components/Authors'
+import Home from '@/pages/Home'
+import Authors from '@/pages/Authors'
 
 Vue.use(Router)
 
