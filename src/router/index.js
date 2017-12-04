@@ -9,14 +9,19 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
       name: 'Home',
+      path: '/',
       component: Home
     },
     {
-      path: '/authors',
       name: 'Authors',
+      path: '/authors',
       component: Authors
+    },
+    {
+      name: 'categories',
+      path: '/categories/:term',
+      component: { template: '<div>Not Configured</div>' }
     }
   ]
 })
