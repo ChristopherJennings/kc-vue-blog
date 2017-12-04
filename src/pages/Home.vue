@@ -13,7 +13,7 @@
 
 <script>
 import Hero from '@/components/Hero'
-import PostCardPreview from '@/components/Post-Preview-Card'
+import PostPreviewCard from '@/components/Post-Preview-Card'
 import {createClient} from '@/KenticoCloud/client'
 
 const deliveryClient = createClient()
