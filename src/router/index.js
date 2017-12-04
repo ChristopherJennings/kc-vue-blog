@@ -6,6 +6,7 @@ import Authors from '@/pages/Authors'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
