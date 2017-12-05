@@ -1,23 +1,6 @@
 <template>
   <div id="app">
-    <!-- START NAV -->
-    <nav class="navbar is-dark">
-      <div class="navbar-brand">
-        <router-link class="navbar-item brand-text" to="/">KC Blog Sample</router-link>
-        <div class="navbar-burger burger" data-target="navMenu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-      <div id="navMenu" class="navbar-menu">
-        <div class="navbar-start">
-          <router-link class="navbar-item" to="/authors">Authors</router-link>
-        </div>
-      </div>
-    </nav>
-    <!-- END NAV -->
-
+    <main-navigation/>
     <router-view/>
 
     <footer class="footer">
@@ -33,8 +16,13 @@
 </template>
 
 <script>
+import MainNavigation from '@/components/MainNavigation'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    MainNavigation
+  }
 }
 </script>
 
