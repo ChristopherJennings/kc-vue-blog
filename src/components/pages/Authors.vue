@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import BlogLayout from '@/components/layouts/Blog-Layout'
+import BlogLayout from '@/components/layouts/BlogLayout'
 import Hero from '@/components/Hero'
-import AuthorCard from '@/components/Author-Card'
+import AuthorCard from '@/components/AuthorCard'
 import {createClient} from '@/Kentico-cloud/client'
 
 const deliveryClient = createClient()
