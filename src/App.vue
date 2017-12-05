@@ -18,7 +18,9 @@
     </nav>
     <!-- END NAV -->
     
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
 
     <footer class="footer">
       <div class="container">
