@@ -8,7 +8,7 @@
         {{ post.subtitle.text }}
       </p>
       <p class="subtitle is-6">
-        <router-link to="/authors">
+        <router-link :to="{ path: post.author[0].slug.getUrl() }">
           {{ post.author[0].first_name.text }} {{ post.author[0].last_name.text }}
         </router-link> on {{ new Date(post.publish_date.value).toDateString() }}
       </p>

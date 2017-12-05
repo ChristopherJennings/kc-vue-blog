@@ -18,11 +18,9 @@
                 </ul>
                 <p class="menu-label">Archive</p>
                 <ul class="menu-list">
-                  <li><a>Post</a></li>
-                  <li><a>Post</a></li>
-                  <li><a>Post</a></li>
-                  <li><a>Post</a></li>
-                  <li><a>Post</a></li>
+                  <li v-for="post in posts" :key="post.system.id">
+                    <router-link :to="{path: post.slug.getUrl() }">{{ post.title.text }}</router-link>
+                  </li>
                 </ul>
               </aside>
             </div>
@@ -44,12 +42,14 @@ export default {
   },
   data () {
     return {
-      categories: []
+      categories: [],
+      posts: []
     }
   },
 
   created () {
     deliveryClient.taxonomy('categories').get().subscribe(response => { this.categories = response.taxonomy.terms })
+    deliveryClient.items().type('post').get().subscribe(response => { this.posts = response.items })
   }
 }
 </script>
