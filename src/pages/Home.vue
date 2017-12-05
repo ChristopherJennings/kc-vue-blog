@@ -13,7 +13,7 @@
 import BlogLayout from '@/components/layouts/Blog-Layout'
 import Hero from '@/components/Hero'
 import PostPreview from '@/components/Post-Preview'
-import {createClient} from '@/KenticoCloud/client'
+import {createClient} from '@/Kentico-cloud/client'
 
 const deliveryClient = createClient()
 

@@ -14,7 +14,7 @@
 import BlogLayout from '@/components/layouts/Blog-Layout'
 import Hero from '@/components/Hero'
 import AuthorCard from '@/components/Author-Card'
-import {createClient} from '@/KenticoCloud/client'
+import {createClient} from '@/Kentico-cloud/client'
 
 const deliveryClient = createClient()
 

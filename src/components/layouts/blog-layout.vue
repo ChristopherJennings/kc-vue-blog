@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import {createClient} from '@/KenticoCloud/client'
+import {createClient} from '@/Kentico-cloud/client'
 
 const deliveryClient = createClient()
 
