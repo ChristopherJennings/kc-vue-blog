@@ -1,5 +1,5 @@
 import * as KenticoCloud from 'kentico-cloud-delivery-typescript-sdk'
-import config from '@/KenticoCloudConfig.json'
+import config from './KenticoCloudConfig.json'
 
 export function createClient () {
   let typeResolvers = []

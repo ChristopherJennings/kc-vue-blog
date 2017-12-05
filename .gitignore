@@ -17,4 +17,4 @@ selenium-debug.log
 *.sln
 
 # Sensitive information
-src/KenticoCloudConfig.json
+KenticoCloudConfig.json
