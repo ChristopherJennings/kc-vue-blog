@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar is-dark">
+    <nav class="navbar is-dark" >
       <div class="navbar-brand">
         <router-link class="navbar-item brand-text" to="/">KC Blog Sample</router-link>
-        <div class="navbar-burger burger" data-target="navMenu" v-on:click="toggle()">
+        <div class="navbar-burger burger" data-target="navMenu" v-on:click="toggle()" ref="burger">
           <span></span>
           <span></span>
           <span></span>
@@ -27,8 +27,20 @@ export default {
     toggle () {
       this.open = !this.open
     },
-    close () {
-      this.open = false
+    clickedOutside (event) {
+      if (event.target !== this.$refs.burger) {
+        this.open = false
+      }
+    }
+  },
+  created () {
+    if (typeof window !== 'undefined') {
+      document.addEventListener('click', this.clickedOutside)
+    }
+  },
+  beforeDestroy () {
+    if (typeof window !== 'undefined') {
+      document.removeEventListener('click', this.clickedOutside)
     }
   }
 }
