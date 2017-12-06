@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'post-preview-card',
+  name: 'post-preview',
   props: [
     'post'
   ]
