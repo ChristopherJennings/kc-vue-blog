@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/pages/HomePage'
 import AuthorsPage from '@/components/pages/AuthorsPage'
 import PostDetailPage from '@/components/pages/PostDetailPage'
+import CategoriesIndexPage from '@/components/pages/CategoriesIndexPage'
 import NotFoundPage from '@/components/pages/NotFoundPage'
 
 Vue.use(Router)
@@ -23,7 +24,7 @@ export default new Router({
     {
       name: 'categories',
       path: '/categories/:term',
-      component: NotFoundPage
+      component: CategoriesIndexPage
     },
     {
       name: 'post-detail',
