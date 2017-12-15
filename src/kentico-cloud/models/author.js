@@ -5,7 +5,7 @@ export class Author extends ContentItem {
     super({
       linkResolver: (link) => {
         // eslint-disable-next-line
-        return `/authors/${this.slug.value}`
+        return `/authors/${link.url_slug}`
       }
     })
   }
