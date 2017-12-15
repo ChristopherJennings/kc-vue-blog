@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/pages/HomePage'
 import AuthorsPage from '@/components/pages/AuthorsPage'
 import PostDetailPage from '@/components/pages/PostDetailPage'
+import NotFoundPage from '@/components/pages/NotFoundPage'
 
 Vue.use(Router)
 
@@ -10,24 +11,28 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      name: 'Home',
+      name: 'home',
       path: '/',
       component: HomePage
     },
     {
-      name: 'Authors',
+      name: 'authors',
       path: '/authors',
       component: AuthorsPage
     },
     {
       name: 'categories',
       path: '/categories/:term',
-      component: { template: '<div>Not Configured</div>' }
+      component: NotFoundPage
     },
     {
       name: 'post-detail',
       path: '/posts/:slug',
       component: PostDetailPage
+    },
+    {
+      path: '*',
+      component: NotFoundPage
     }
   ]
 })
