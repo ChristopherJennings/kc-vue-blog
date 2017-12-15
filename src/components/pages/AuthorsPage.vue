@@ -19,7 +19,7 @@ import {createClient} from '@/Kentico-cloud/client'
 const deliveryClient = createClient()
 
 export default {
-  name: 'Authors',
+  name: 'authors-page',
   components: {
     BlogLayout,
     Hero,

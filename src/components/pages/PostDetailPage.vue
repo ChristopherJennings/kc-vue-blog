@@ -20,7 +20,7 @@ import { createClient } from '@/Kentico-cloud/client'
 const deliveryClient = createClient()
 
 export default {
-  name: 'PostDetailPage',
+  name: 'post-detail-page',
   components: {
     BlogLayout,
     Loader,

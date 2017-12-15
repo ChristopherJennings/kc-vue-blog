@@ -18,7 +18,7 @@ import { createClient } from '@/Kentico-cloud/client'
 const deliveryClient = createClient()
 
 export default {
-  name: 'Home',
+  name: 'home-page',
   components: {
     BlogLayout,
     Hero,

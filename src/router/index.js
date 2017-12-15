@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/pages/Home'
-import Authors from '@/components/pages/Authors'
+import HomePage from '@/components/pages/HomePage'
+import AuthorsPage from '@/components/pages/AuthorsPage'
 import PostDetailPage from '@/components/pages/PostDetailPage'
 
 Vue.use(Router)
@@ -12,12 +12,12 @@ export default new Router({
     {
       name: 'Home',
       path: '/',
-      component: Home
+      component: HomePage
     },
     {
       name: 'Authors',
       path: '/authors',
-      component: Authors
+      component: AuthorsPage
     },
     {
       name: 'categories',
