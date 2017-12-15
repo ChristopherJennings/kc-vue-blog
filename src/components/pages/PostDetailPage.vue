@@ -1,9 +1,10 @@
 <template>
   <div>
-    <blog-layout>
-      <Hero slot="hero" title="Detail" subtitle="Sub" />
-      <div class="box" v-if="loaded">
-        <post-preview :post="post" />
+    <div class="loading" v-if="!loaded">Loading...</div>
+    <blog-layout v-if="loaded">
+      <Hero slot="hero" :title="post.title.text" :subtitle="post.subtitle.text" />
+      <div class="box">
+        <post-detail :post="post" />
       </div>
     </blog-layout>
   </div>
@@ -12,17 +13,17 @@
 <script>
 import BlogLayout from '@/components/layouts/BlogLayout'
 import Hero from '@/components/Hero'
-import PostPreview from '@/components/PostPreview'
+import PostDetail from '@/components/PostDetail'
 import { createClient } from '@/Kentico-cloud/client'
 
 const deliveryClient = createClient()
 
 export default {
-  name: 'PostDetail',
+  name: 'PostDetailPage',
   components: {
     BlogLayout,
     Hero,
-    PostPreview
+    PostDetail
   },
   data () {
     return {

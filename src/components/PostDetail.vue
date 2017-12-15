@@ -1,11 +1,6 @@
 <template>
   <div>
     <div>
-      <h1 class="title">
-        <router-link :to="{ path: post.slug.getUrl() }">
-          {{ post.title.text }}
-        </router-link>
-      </h1>
       <p class="subtitle is-6">
         <router-link :to="{ path: post.author[0].slug.getUrl() }">
           {{ post.author[0].first_name.text }} {{ post.author[0].last_name.text }}
@@ -13,13 +8,13 @@
       </p>
     </div>
 
-    <div class="content" v-html="post.seo_metadata__description.text"></div>
+    <div class="content" v-html="post.body.getHtml()"></div>
   </div>     
 </template>
 
 <script>
 export default {
-  name: 'post-preview',
+  name: 'post-detail',
   props: [
     'post'
   ]

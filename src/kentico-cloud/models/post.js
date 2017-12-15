@@ -4,8 +4,7 @@ export class Post extends ContentItem {
   constructor () {
     super({
       linkResolver: (link) => {
-        // eslint-disable-next-line
-        return `/posts/${this.slug.value}`
+        return `/posts/${link.url_slug}`
       }
     })
   }
