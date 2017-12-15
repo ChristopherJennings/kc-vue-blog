@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="loading" v-if="!loaded">Loading...</div>
+    <loader :loaded="loaded" />
     <blog-layout v-if="loaded">
       <Hero slot="hero" :title="post.title.text" :subtitle="post.subtitle.text" />
       <div class="box">
@@ -12,6 +12,7 @@
 
 <script>
 import BlogLayout from '@/components/layouts/BlogLayout'
+import Loader from '@/components/Loader'
 import Hero from '@/components/Hero'
 import PostDetail from '@/components/PostDetail'
 import { createClient } from '@/Kentico-cloud/client'
@@ -22,6 +23,7 @@ export default {
   name: 'PostDetailPage',
   components: {
     BlogLayout,
+    Loader,
     Hero,
     PostDetail
   },
