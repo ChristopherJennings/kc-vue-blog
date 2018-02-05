@@ -10,6 +10,9 @@
       </div>
       <div id="navMenu" v-bind:class="{ 'is-active': open, 'navbar-menu': true }">
         <div class="navbar-start">
+          <router-link class="navbar-item" to="/about">About</router-link>
+          <router-link class="navbar-item" to="/categories">Categories</router-link>
+          <router-link class="navbar-item" to="/archive">Archive</router-link>
           <router-link class="navbar-item" to="/authors">Authors</router-link>
         </div>
       </div>
