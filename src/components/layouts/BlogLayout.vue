@@ -16,7 +16,7 @@
                     <router-link :to="{ name: 'categories', params: { term: category.codename }}">{{ category.name }}</router-link>
                   </li>
                 </ul>
-                <p class="menu-label">Archive</p>
+                <p class="menu-label">Recent Posts</p>
                 <ul class="menu-list">
                   <li v-for="post in posts" :key="post.system.id">
                     <router-link :to="{path: post.slug.getUrl() }">{{ post.title.text }}</router-link>
@@ -49,7 +49,7 @@ export default {
 
   created () {
     deliveryClient.taxonomy('categories').get().subscribe(response => { this.categories = response.taxonomy.terms })
-    deliveryClient.items().type('post').get().subscribe(response => { this.posts = response.items })
+    deliveryClient.items().type('post').orderParameter('elements.publish_date', 1).limitParameter(5).get().subscribe(response => { this.posts = response.items })
   }
 }
 </script>

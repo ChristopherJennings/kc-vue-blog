@@ -31,7 +31,7 @@ export default {
   },
 
   created () {
-    deliveryClient.items().type('post').get().subscribe(response => { this.posts = response.items })
+    deliveryClient.items().type('post').orderParameter('elements.publish_date', 1).get().subscribe(response => { this.posts = response.items })
   }
 }
 </script>
