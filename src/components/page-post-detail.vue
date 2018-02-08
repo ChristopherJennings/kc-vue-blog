@@ -1,30 +1,29 @@
 <template>
   <div>
-    <loader :loaded="loaded" />
-    <blog-layout v-if="loaded">
-      <Hero slot="hero" :title="post.title.text" :subtitle="post.subtitle.text" />
+    <app-loader :loaded="loaded" />
+    <layout-master v-if="loaded">
+      <app-hero slot="hero" :title="post.hero__title.text" :subtitle="post.hero__subtitle.text" />
       <div class="box">
         <post-detail :post="post" />
       </div>
-    </blog-layout>
+    </layout-master>
   </div>
 </template>
 
 <script>
-import BlogLayout from '@/components/layouts/BlogLayout'
-import Loader from '@/components/Loader'
-import Hero from '@/components/Hero'
-import PostDetail from '@/components/PostDetail'
-import { createClient } from '@/Kentico-cloud/client'
+import LayoutMaster from '@/components/layout-master'
+import AppLoader from '@/components/app-loader'
+import AppHero from '@/components/app-hero'
+import PostDetail from '@/components/post-detail'
+import { createClient } from '@/api/kentico-cloud/client'
 
 const deliveryClient = createClient()
 
 export default {
-  name: 'post-detail-page',
   components: {
-    BlogLayout,
-    Loader,
-    Hero,
+    LayoutMaster,
+    AppLoader,
+    AppHero,
     PostDetail
   },
   data () {

@@ -13,7 +13,6 @@
           <router-link class="navbar-item" to="/about">About</router-link>
           <router-link class="navbar-item" to="/categories">Categories</router-link>
           <router-link class="navbar-item" to="/archive">Archive</router-link>
-          <router-link class="navbar-item" to="/authors">Authors</router-link>
         </div>
       </div>
     </nav>

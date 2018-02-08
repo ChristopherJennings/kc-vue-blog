@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <main-navigation/>
-    <router-view :key="$route.fullPath"/>
-
+    <NavMain />
+    <router-view :key="$route.fullPath" />
     <footer class="footer">
       <div class="container">
         <div class="content has-text-centered">
@@ -16,12 +15,11 @@
 </template>
 
 <script>
-import MainNavigation from '@/components/MainNavigation'
+import NavMain from '@/components/nav-main'
 
 export default {
-  name: 'app',
   components: {
-    MainNavigation
+    NavMain
   }
 }
 </script>

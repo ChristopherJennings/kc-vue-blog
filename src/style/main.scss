@@ -34,7 +34,7 @@ $footer-background-color: $background;
   animation: load7 1.8s infinite ease-in-out;
 }
 .loading {
-  color: #ffffff;
+  color: $dark-slate;
   font-size: 10px;
   margin: 80px auto;
   position: relative;

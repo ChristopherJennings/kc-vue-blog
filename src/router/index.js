@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomePage from '@/components/pages/HomePage'
-import AuthorsPage from '@/components/pages/AuthorsPage'
-import PostDetailPage from '@/components/pages/PostDetailPage'
-import CategoriesIndexPage from '@/components/pages/CategoriesIndexPage'
-import NotFoundPage from '@/components/pages/NotFoundPage'
+import PageHome from '@/components/page-home'
+import PagePostDetail from '@/components/page-post-detail'
+import PageCategoriesIndex from '@/components/page-categories-index'
+import PageNotFound from '@/components/page-not-found'
 
 Vue.use(Router)
 
@@ -14,26 +13,21 @@ export default new Router({
     {
       name: 'home',
       path: '/',
-      component: HomePage
-    },
-    {
-      name: 'authors',
-      path: '/authors',
-      component: AuthorsPage
+      component: PageHome
     },
     {
       name: 'categories',
       path: '/categories/:term',
-      component: CategoriesIndexPage
+      component: PageCategoriesIndex
     },
     {
       name: 'post-detail',
       path: '/posts/:slug',
-      component: PostDetailPage
+      component: PagePostDetail
     },
     {
       path: '*',
-      component: NotFoundPage
+      component: PageNotFound
     }
   ]
 })

@@ -10,18 +10,13 @@
           <div class="column is-one-quarter">
             <div class="box">
               <aside class="menu">
-                <p class="menu-label">Categories</p>
+                <p class="menu-label">Characters</p>
                 <ul class="menu-list">
                   <li v-for="category in categories" :key="category.codename">
                     <router-link :to="{ name: 'categories', params: { term: category.codename }}">{{ category.name }}</router-link>
                   </li>
                 </ul>
-                <p class="menu-label">Recent Posts</p>
-                <ul class="menu-list">
-                  <li v-for="post in posts" :key="post.system.id">
-                    <router-link :to="{path: post.slug.getUrl() }">{{ post.title.text }}</router-link>
-                  </li>
-                </ul>
+                <AppSidebarPosts />
               </aside>
             </div>
           </div>
@@ -32,24 +27,22 @@
 </template>
 
 <script>
-import {createClient} from '@/Kentico-cloud/client'
+import AppSidebarPosts from '@/components/app-sidebar-posts'
+import {createClient} from '@/api/kentico-cloud/client'
 
 const deliveryClient = createClient()
 
 export default {
-  name: 'Blog-Layout',
   components: {
+    AppSidebarPosts
   },
   data () {
     return {
-      categories: [],
-      posts: []
+      categories: []
     }
   },
-
   created () {
-    deliveryClient.taxonomy('categories').get().subscribe(response => { this.categories = response.taxonomy.terms })
-    deliveryClient.items().type('post').orderParameter('elements.publish_date', 1).limitParameter(5).get().subscribe(response => { this.posts = response.items })
+    deliveryClient.taxonomy('characters').get().subscribe(response => { this.categories = response.taxonomy.terms })
   }
 }
 </script>

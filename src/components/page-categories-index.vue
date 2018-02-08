@@ -1,28 +1,28 @@
 <template>
   <div>
-    <blog-layout>
-      <Hero slot="hero" :title="term" />
+    <layout-master>
+      <AppHero slot="hero" :title="term" />
       <div class="box">
         <p v-if="posts && posts.length == 0">No posts found</p>
-        <post-preview :post="post" v-for="post in posts" :key="post.system.id" />
+        <PostPreview :post="post" v-for="post in posts" :key="post.system.id" />
       </div>
-    </blog-layout>
+    </layout-master>
   </div>
 </template>
 
 <script>
-import BlogLayout from '@/components/layouts/BlogLayout'
-import Hero from '@/components/Hero'
-import PostPreview from '@/components/PostPreview'
-import { createClient } from '@/Kentico-cloud/client'
+import LayoutMaster from '@/components/layout-master'
+import AppHero from '@/components/app-hero'
+import PostPreview from '@/components/post-preview'
+import { createClient } from '@/api/kentico-cloud/client'
 
 const deliveryClient = createClient()
 
 export default {
   name: 'categories-index-page',
   components: {
-    BlogLayout,
-    Hero,
+    LayoutMaster,
+    AppHero,
     PostPreview
   },
   data () {
