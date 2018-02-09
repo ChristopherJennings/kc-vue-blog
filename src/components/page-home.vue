@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <layout-master>
-      <AppHero slot="hero" title="Welcome!" subtitle="This is a sample blog" />
-      <div class="box">
-        <app-loader v-if="loading" />
-        <div class="columns is-multiline" v-else>
-          <PostPreview :post="post" v-for="post in posts" :key="post.system.id" />
-        </div>        
-      </div>
-    </layout-master>
-  </div>
+  <layout-master>
+    <app-hero slot="hero" title="Welcome!" subtitle="This is a sample blog" />
+    <div class="box">
+      <app-loader v-if="loading" />
+      <div class="columns is-multiline" v-else>
+        <post-preview :post="post" v-for="post in posts" :key="post.system.id" />
+      </div>        
+    </div>
+  </layout-master>
 </template>
 
 <script>

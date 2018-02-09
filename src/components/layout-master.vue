@@ -16,7 +16,7 @@
                     <router-link :to="{ name: 'categories', params: { term: category.codename }}">{{ category.name }}</router-link>
                   </li>
                 </ul>
-                <AppSidebarPosts />
+                <app-sidebar-posts />
               </aside>
             </div>
           </div>

@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <app-loader v-if="!loaded" />
-    <layout-master v-if="loaded">
+  <layout-master v-if="loaded">
       <app-hero slot="hero" :title="post.hero__title.text" :subtitle="post.hero__subtitle.text" />
       <div class="box">
         <post-detail :post="post" />
       </div>
-    </layout-master>
-  </div>
+  </layout-master>
 </template>
 
 <script>

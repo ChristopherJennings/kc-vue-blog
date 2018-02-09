@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <layout-master>
-      <AppHero slot="hero" :title="term" />
-      <div class="box">
-        <p v-if="posts && posts.length == 0">No posts found</p>
-        <PostPreview :post="post" v-for="post in posts" :key="post.system.id" />
-      </div>
-    </layout-master>
-  </div>
+  <layout-master>
+    <app-hero slot="hero" :title="term" />
+    <div class="box">
+      <p v-if="posts && posts.length == 0">No posts found</p>
+      <post-preview :post="post" v-for="post in posts" :key="post.system.id" />
+    </div>
+  </layout-master>
 </template>
 
 <script>

@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <layout-master>
-      <AppHero slot="hero" title="Page not found" subtitle="Sorry about that" />
-      <div class="box">
-        <p>Try going <router-link :to="{ name: 'home' }">Home</router-link></p>
-      </div>
-    </layout-master>
-  </div>
+  <layout-master>
+    <app-hero slot="hero" title="Page not found" subtitle="Sorry about that" />
+    <div class="box">
+      <p>Try going <router-link :to="{ name: 'home' }">Home</router-link></p>
+    </div>
+  </layout-master>
 </template>
 
 <script>
