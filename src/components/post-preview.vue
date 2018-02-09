@@ -1,17 +1,25 @@
 <template>
-  <div>
-    <div>
-      <h1 class="title">
+  <div class="column is-half">
+    <div class="card">
+      <div class="card-image">
         <router-link :to="{ path: post.slug.getUrl() }">
-          {{ post.hero__title.text }}
+          <figure class="image is-1by1 is-cropped">
+            <img :src="post.hero__image.assets[0].url">
+          </figure>
         </router-link>
-      </h1>
-      <p class="subtitle is-6">
-        Posted on {{ new Date(post.publish_date.value).toDateString() }}
-      </p>
+      </div>
+      <div class="card-content">
+        <h2 class="title">
+          <router-link :to="{ path: post.slug.getUrl() }">
+             {{ post.hero__title.text }}
+          </router-link>
+        </h2>
+        <div class="content" v-html="post.hero__subtitle.text"></div>
+        <p class="subtitle is-6">
+          Posted on {{ new Date(post.publish_date.value).toDateString() }}
+        </p>
+      </div>
     </div>
-
-    <div class="content" v-html="post.hero__subtitle.text"></div>
   </div>     
 </template>
 
@@ -23,4 +31,3 @@ export default {
   ]
 }
 </script>
-

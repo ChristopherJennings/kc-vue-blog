@@ -10,6 +10,9 @@ $light-grey: #eaeaea;
 $primary: $trust-blue;
 $primary-invert: findColorInvert($primary);
 
+$secondary: $eco-green;
+$secondary-invert: findColorInvert($secondary);
+
 // Import Bulma's derived values and make overrides
 @import "../../node_modules/bulma/sass/utilities/derived-variables";
 
@@ -20,6 +23,11 @@ $footer-background-color: $background;
 
 // Import the rest of Bulma
 @import "../../node_modules/bulma/bulma.sass";
+
+.is-cropped img {
+  max-height: 100%;
+  object-fit: cover;
+}
 
 // loading
 .loading,

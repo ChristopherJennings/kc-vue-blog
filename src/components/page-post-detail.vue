@@ -1,6 +1,6 @@
 <template>
   <div>
-    <app-loader :loaded="loaded" />
+    <app-loader v-if="!loaded" />
     <layout-master v-if="loaded">
       <app-hero slot="hero" :title="post.hero__title.text" :subtitle="post.hero__subtitle.text" />
       <div class="box">
