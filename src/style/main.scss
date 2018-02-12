@@ -21,6 +21,12 @@ $background: $light;
 $body-background-color: $background;
 $footer-background-color: $background;
 
+// Change breakpoints
+$tablet: 601px;
+$desktop: 901px;
+$widescreen: 1201px;
+$fullhd: 1801px;
+
 // Import the rest of Bulma
 @import "../../node_modules/bulma/bulma.sass";
 

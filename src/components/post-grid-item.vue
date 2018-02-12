@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-half">
+  <div class="column is-one-fifth-fullhd is-one-quarter-widescreen is-one-third-desktop is-half-tablet">
     <div class="card">
       <div class="card-image">
         <router-link :to="{ path: post.slug.getUrl() }">
@@ -25,7 +25,6 @@
 
 <script>
 export default {
-  name: 'post-preview',
   props: [
     'post'
   ]

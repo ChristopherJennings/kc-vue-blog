@@ -1,27 +1,26 @@
 <template>
-  <layout-master>
+  <layout-page>
     <app-hero slot="hero" :title="term" />
     <div class="box">
       <p v-if="posts && posts.length == 0">No posts found</p>
-      <post-preview :post="post" v-for="post in posts" :key="post.system.id" />
+      <p v-if="posts && posts.length > 0">{{posts.length}} posts found</p>
+      <post-list :posts="posts" />
     </div>
-  </layout-master>
+  </layout-page>
 </template>
 
 <script>
-import LayoutMaster from '@/components/layout-master'
+import LayoutPage from '@/components/layout-page'
 import AppHero from '@/components/app-hero'
-import PostPreview from '@/components/post-preview'
-import { createClient } from '@/api/kentico-cloud/client'
-
-const deliveryClient = createClient()
+import PostList from '@/components/post-list'
+import postApi from '@/api/posts'
 
 export default {
   name: 'categories-index-page',
   components: {
-    LayoutMaster,
+    LayoutPage,
     AppHero,
-    PostPreview
+    PostList
   },
   data () {
     return {
@@ -34,7 +33,7 @@ export default {
   created () {
     this.term = this.$route.params.term
 
-    deliveryClient.items().type('post').containsFilter('elements.categories', [this.term]).get().subscribe(response => {
+    postApi.getPostsByCharacterTaxonomy(this.term).subscribe(response => {
       this.posts = response.items
       this.loaded = true
     })

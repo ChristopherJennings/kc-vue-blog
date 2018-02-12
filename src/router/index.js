@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import PageHome from '@/components/page-home'
-import PagePostDetail from '@/components/page-post-detail'
-import PageCategoriesIndex from '@/components/page-categories-index'
-import PageNotFound from '@/components/page-not-found'
+import ViewHome from '@/views/view-home'
+import ViewPostDetail from '@/views/view-post-detail'
+import ViewCategoriesDetail from '@/views/view-categories-detail'
+import ViewNotFound from '@/views/view-not-found'
 
 Vue.use(Router)
 
@@ -13,21 +13,21 @@ export default new Router({
     {
       name: 'home',
       path: '/',
-      component: PageHome
+      component: ViewHome
     },
     {
-      name: 'categories',
+      name: 'categories-detail',
       path: '/categories/:term',
-      component: PageCategoriesIndex
+      component: ViewCategoriesDetail
     },
     {
       name: 'post-detail',
       path: '/posts/:slug',
-      component: PagePostDetail
+      component: ViewPostDetail
     },
     {
       path: '*',
-      component: PageNotFound
+      component: ViewNotFound
     }
   ]
 })

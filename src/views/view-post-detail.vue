@@ -1,14 +1,14 @@
 <template>
-  <layout-master v-if="loaded">
+  <layout-page v-if="loaded">
       <app-hero slot="hero" :title="post.hero__title.text" :subtitle="post.hero__subtitle.text" />
       <div class="box">
         <post-detail :post="post" />
       </div>
-  </layout-master>
+  </layout-page>
 </template>
 
 <script>
-import LayoutMaster from '@/components/layout-master'
+import LayoutPage from '@/components/layout-page'
 import AppLoader from '@/components/app-loader'
 import AppHero from '@/components/app-hero'
 import PostDetail from '@/components/post-detail'
@@ -18,7 +18,7 @@ const deliveryClient = createClient()
 
 export default {
   components: {
-    LayoutMaster,
+    LayoutPage,
     AppLoader,
     AppHero,
     PostDetail
