@@ -16,7 +16,7 @@ $secondary-invert: findColorInvert($secondary);
 // Import Bulma's derived values and make overrides
 @import "../../node_modules/bulma/sass/utilities/derived-variables";
 
-$background: $light;
+$background: lighten($light,10%);
 
 $body-background-color: $background;
 $footer-background-color: $background;
