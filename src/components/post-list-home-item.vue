@@ -6,7 +6,7 @@
           <div class="column">
             <p class="title">{{ post.hero__title.text }}</p>
             <p class="subtitle">{{ post.hero__subtitle.text }}</p>
-            <p>Posted on {{ new Date(post.publish_date.value).toDateString() }}</p>
+            <p>Posted {{ postedOnRelative }} on {{ postedOn }}</p>
           </div>
           <div class="column is-one-fifth">
             <figure class="image is-1by1 is-cropped">
@@ -20,7 +20,17 @@
 </template>
 
 <script>
+import * as moment from 'moment'
+
 export default {
+  computed: {
+    postedOn: function () {
+      return moment(this.post.publish_date.value).format('dddd, MMMM D, YYYY')
+    },
+    postedOnRelative: function () {
+      return moment(this.post.publish_date.value).fromNow()
+    }
+  },
   props: [
     'post'
   ]

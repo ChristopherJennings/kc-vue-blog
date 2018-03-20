@@ -16,6 +16,7 @@
   "dependencies": {
     "bulma": "^0.6.2",
     "kentico-cloud-delivery-typescript-sdk": "^2.3.3",
+    "moment": "^2.21.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
     "vue": "^2.5.13",
