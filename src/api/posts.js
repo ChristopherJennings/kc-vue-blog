@@ -3,6 +3,14 @@ import { createClient } from './kentico-cloud/client'
 const deliveryClient = createClient()
 
 export default {
+  getPostBySlug (slug) {
+    return deliveryClient
+      .items()
+      .type('post')
+      .equalsFilter('elements.slug', slug)
+      .get()
+  },
+
   getPosts () {
     return deliveryClient
       .items()
