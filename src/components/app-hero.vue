@@ -1,13 +1,17 @@
 <template>
   <section class="hero is-primary">
       <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            {{ title }}
-          </h1>
-          <h2 class="subtitle">
-            {{ subtitle }}
-          </h2>
+        <div class="columns is-vcentered">
+          <div class="column">
+            <p class="title">{{ title }}</p>
+            <p class="subtitle">{{ subtitle }}</p>
+            <p v-if="text">{{ text }}</p>
+          </div>
+          <div class="column is-one-fifth" v-if="imageUrl">
+            <figure class="image is-1by1 is-cropped">
+              <img :src="imageUrl">
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -17,7 +21,9 @@
 export default {
   props: [
     'title',
-    'subtitle'
+    'subtitle',
+    'text',
+    'imageUrl'
   ]
 }
 </script>
