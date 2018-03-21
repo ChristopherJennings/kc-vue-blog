@@ -1,9 +1,11 @@
 <template>
   <layout-page v-if="loaded">
-      <app-hero slot="hero" :title="post.hero__title.text" :subtitle="post.hero__subtitle.text" />
-      <div class="box">
-        <post-detail :post="post" />
-      </div>
+      <app-hero slot="hero" 
+        :title="post.hero__title.text"
+        :subtitle="post.hero__subtitle.text"
+        :imageUrl="post.hero__image.assets[0].url"
+        :text="'Posted ' + postedOnRelative + ' on ' + postedOn" />
+      <post-detail :post="post" />
   </layout-page>
 </template>
 
@@ -13,6 +15,7 @@ import AppLoader from '@/components/app-loader'
 import AppHero from '@/components/app-hero'
 import PostDetail from '@/components/post-detail'
 import { createClient } from '@/api/kentico-cloud/client'
+import * as moment from 'moment'
 
 const deliveryClient = createClient()
 
@@ -22,6 +25,14 @@ export default {
     AppLoader,
     AppHero,
     PostDetail
+  },
+  computed: {
+    postedOn: function () {
+      return moment(this.post.publish_date.value).format('dddd, MMMM D, YYYY')
+    },
+    postedOnRelative: function () {
+      return moment(this.post.publish_date.value).fromNow()
+    }
   },
   data () {
     return {

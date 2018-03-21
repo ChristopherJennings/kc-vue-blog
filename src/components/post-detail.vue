@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div>
-      <p class="subtitle is-6">
-        Posted {{ postedOnRelative }} on {{ postedOn }}
-      </p>
-    </div>
     <div class="content" v-html="post.body.getHtml()"></div>
   </div>     
 </template>
