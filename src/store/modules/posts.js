@@ -3,6 +3,7 @@ import postApi from '@/api/posts'
 
 export default {
   state: {
+    currentPost: {},
     posts: [],
     recentPosts: []
   },
@@ -10,6 +11,9 @@ export default {
   getters: {},
 
   mutations: {
+    [types.SET_CURRENT_POST] (state, currentPost) {
+      state.currentPost = currentPost
+    },
     [types.SET_POSTS] (state, posts) {
       state.posts = posts
     },
@@ -19,6 +23,22 @@ export default {
   },
 
   actions: {
+    loadCurrentPost ({state, commit}, slug) {
+      return new Promise((resolve, reject) => {
+        // if (state.posts.length === 0) {
+        try {
+          postApi.getPostBySlug(slug).subscribe(response => {
+            commit(types.SET_CURRENT_POST, response.items[0])
+            resolve()
+          })
+        } catch (error) {
+          reject(error)
+        }
+        // } else {
+        //  resolve()
+        // }
+      })
+    },
     loadPosts ({state, commit}) {
       return new Promise((resolve, reject) => {
         if (state.posts.length === 0) {
