@@ -1,11 +1,14 @@
 <template>
-  <layout-page v-if="loaded">
+  <layout-page>
+    <app-loader v-if="loading" />
+    <template v-else>
       <app-hero slot="hero" 
         :title="post.hero__title.text"
         :subtitle="post.hero__subtitle.text"
         :imageUrl="post.hero__image.assets[0].url"
         :text="'Posted ' + postedOnRelative + ' on ' + postedOn" />
-      <post-detail :post="post" />
+      <post-detail :post="post" />  
+    </template>
   </layout-page>
 </template>
 
@@ -14,10 +17,7 @@ import LayoutPage from '@/components/layout-page'
 import AppLoader from '@/components/app-loader'
 import AppHero from '@/components/app-hero'
 import PostDetail from '@/components/post-detail'
-import { createClient } from '@/api/kentico-cloud/client'
 import * as moment from 'moment'
-
-const deliveryClient = createClient()
 
 export default {
   components: {
@@ -27,25 +27,25 @@ export default {
     PostDetail
   },
   computed: {
-    postedOn: function () {
+    post () {
+      return this.$store.state.posts.currentPost
+    },
+    postedOn () {
       return moment(this.post.publish_date.value).format('dddd, MMMM D, YYYY')
     },
-    postedOnRelative: function () {
+    postedOnRelative () {
       return moment(this.post.publish_date.value).fromNow()
     }
   },
   data () {
     return {
-      loaded: false,
-      post: {}
+      loading: false
     }
   },
 
   created () {
-    deliveryClient.items().type('post').equalsFilter('elements.slug', this.$route.params.slug).get().subscribe(response => {
-      this.post = response.items[0]
-      this.loaded = true
-    })
+    this.loading = true
+    this.$store.dispatch('loadCurrentPost', this.$route.params.slug).then(() => (this.loading = false))
   }
 }
 </script>
