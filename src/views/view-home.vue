@@ -32,8 +32,7 @@ export default {
   },
   created () {
     this.loading = true
-    // eslint-disable-next-line
-    this.$store.dispatch('loadPosts').then(() => this.loading = false)
+    this.$store.dispatch('loadPosts').then(() => (this.loading = false))
   }
 }
 </script>
